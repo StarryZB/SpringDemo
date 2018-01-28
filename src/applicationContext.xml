@@ -4,18 +4,18 @@
        xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
-    <bean id="helloWorld" class="com.spring.beans.HelloWorld">
+    <bean id="helloWorld" class="com.spring.ioc.beans.HelloWorld">
         <property name="name" value="Spring"></property>
     </bean>
 
     <!--构造方法配置-->
-    <bean id="car" class="com.spring.beans.Car">
+    <bean id="car" class="com.spring.ioc.beans.Car">
         <constructor-arg value="Audi" index="0"></constructor-arg>
         <constructor-arg value="Shanghai" index="1"></constructor-arg>
         <constructor-arg value="300000" index="2" type="double"></constructor-arg>
     </bean>
 
-    <bean id="car2" class="com.spring.beans.Car">
+    <bean id="car2" class="com.spring.ioc.beans.Car">
         <constructor-arg value="Baoma" type="java.lang.String"></constructor-arg>
         <constructor-arg value="Shanghai" type="java.lang.String"></constructor-arg>
         <constructor-arg type="int">
@@ -23,12 +23,12 @@
         </constructor-arg>
     </bean>
 
-    <bean id="person" class="com.spring.beans.Person">
+    <bean id="person" class="com.spring.ioc.beans.Person">
         <property name="name" value="Tom"></property>
         <property name="age" value="24"></property>
 
         <property name="car">
-            <bean class="com.spring.beans.Car">
+            <bean class="com.spring.ioc.beans.Car">
                 <constructor-arg value="Ford"></constructor-arg>
                 <constructor-arg value="Changan"></constructor-arg>
                 <constructor-arg value="200000" type="double"></constructor-arg>
@@ -36,7 +36,7 @@
         </property>
     </bean>
 
-    <bean id="person2" class="com.spring.beans.Person">
+    <bean id="person2" class="com.spring.ioc.beans.Person">
         <constructor-arg value="Jerry"></constructor-arg>
         <constructor-arg value="25"></constructor-arg>
         <!--<constructor-arg><null></null></constructor-arg>-->
@@ -44,7 +44,7 @@
         <property name="car.maxspeed" value="270"></property>
     </bean>
 
-    <bean id="datasource" class="com.spring.beans.DataSource">
+    <bean id="datasource" class="com.spring.ioc.beans.DataSource">
         <property name="properties">
             <props>
                 <prop key="user">root</prop>
@@ -60,11 +60,11 @@
         <ref bean="car2"></ref>
     </util:list>
 
-    <bean id="person4" class="com.spring.beans.Person">
+    <bean id="person4" class="com.spring.ioc.beans.Person">
         <property name="name" value="Jack"></property>
         <property name="age" value="29"></property>
         <property name="cars" ref="cars"></property>
     </bean>
 
-    <bean id="person5" class="com.spring.beans.Person" p:age="30" p:name="Queen" p:cars-ref="cars"></bean>
+    <bean id="person5" class="com.spring.ioc.beans.Person" p:age="30" p:name="Queen" p:cars-ref="cars"></bean>
 </beans>
